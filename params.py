@@ -1,7 +1,7 @@
 import datetime
 
 seed = None
-root = '../dataset/pod/podcast_fast/'
+root = '../dataset/pod/'
 dataset_type = 'podcast_fast'
 sr = 16000
 # root = '/media/hdd1/datasets/VCTK-Corpus/'

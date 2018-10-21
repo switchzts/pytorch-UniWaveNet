@@ -68,6 +68,10 @@ class DatasetFromFolder(torch.utils.data.Dataset):
             paths = sorted([
                 path for path
                 in pathlib.Path(root_or_path).glob('wavs/*.wav')])
+        elif dataset_type == 'podcast_fast':
+            paths = sorted([
+                path for path
+                in pathlib.Path(root_or_path).glob('podcast_fast/*.wav')])
         elif dataset_type == 'file':
             paths = [root_or_path]
         return paths
