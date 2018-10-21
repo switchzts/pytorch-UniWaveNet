@@ -1,16 +1,16 @@
 import datetime
 
 seed = None
-root = '/media/hdd1/datasets/LJSpeech-1.1/'
-dataset_type = 'LJSpeech'
-sr = 22050
+root = '../dataset/pod/podcast_fast/'
+dataset_type = 'podcast_fast'
+sr = 16000
 # root = '/media/hdd1/datasets/VCTK-Corpus/'
 # dataset_type = 'VCTK'
 # sr = 24000
 length = 20480
 batch_size = 1
 frame_length = 1024
-hop = 256
+hop = 200
 n_mels = 80
 window = 'hann'
 
