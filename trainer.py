@@ -179,6 +179,7 @@ def calc_spectrograms(signal, scale):
 
 
 def calc_spectrogram_loss(x, t, scale, weights, loss_threshold=100):
+    print(x.shape,t.shape)
     x_specs = calc_spectrograms(x, scale)
     t_specs = calc_spectrograms(t, scale)
     loss = 0

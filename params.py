@@ -32,4 +32,4 @@ scale = 'magnitude'
 loss_weights = [0.05, 0.05, 0.05, 0.05, 0.1, 0.2, 0.2, 0.3]
 
 output_dir = \
-    'results/{}'.format(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
+    'logs/{}'.format(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
