@@ -8,9 +8,9 @@ sr = 16000
 # dataset_type = 'VCTK'
 # sr = 24000
 length = 20480
-batch_size = 1
+batch_size = 2
 frame_length = 1024
-hop = 200
+hop = 256
 n_mels = 80
 window = 'hann'
 
