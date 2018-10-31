@@ -3,7 +3,7 @@ import argparse
 import librosa
 import numpy
 import torch
-
+import time
 import params
 from net import Encoder
 from net import UniWaveNet
@@ -20,7 +20,7 @@ parser.add_argument('--length', '-l', type=int, default=5,
 parser.add_argument('--input', '-i', help='Input file name')
 parser.add_argument('--output', '-o', default='result.wav',
                     help='Output file name')
-
+start = time.time()
 args = parser.parse_args()
 
 if args.use_cuda and not torch.cuda.is_available():
@@ -46,12 +46,13 @@ wavenet = wavenet.to(device)
 
 encoder.load_state_dict(torch.load(args.encoder_model))
 wavenet.load_state_dict(torch.load(args.wavenet_model))
-
+print('model restore cost',time.time()-start)
 _, spectrogram = next(iter(data_loader))
 spectrogram = spectrogram.to(device)
 with torch.no_grad():
     conditions = encoder(spectrogram)
     x = wavenet(conditions)
     x = x.cpu()
+print('uni-wavenet cost',time.time()-start)
 librosa.output.write_wav(
     args.output, x[0, 0].numpy().astype(numpy.float32), sr=params.sr)
